@@ -34,6 +34,10 @@ python -m codegen
 streamlit run webapp/app.py
 ```
 
+## 演示视频
+
+[demo.mp4](demo.mp4)（2 分钟完整演示：代码生成与验证、错误自修复、上下文记忆、Web 界面）
+
 ## 使用指南
 
 ### 命令行
