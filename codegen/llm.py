@@ -83,6 +83,9 @@ class LLMClient:
             api_key=settings.api_key,
             base_url=settings.base_url,
             timeout=60,
+            # 只声明 gzip/deflate，避免 httpx2 的 Brotli 解码器与本地 brotli
+            # 包版本不兼容导致 Decompressor.decompress 报错（2026-10 环境问题）
+            default_headers={"Accept-Encoding": "gzip, deflate"},
         )
 
     def chat(self, messages: list[dict], tools: list[dict] | None = None) -> ChatResponse:
